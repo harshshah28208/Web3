@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare Web3 concepts side by side. Learn the differences between Web2 vs Web3, Proof of Work vs Proof of Stake, and more.">
+  <meta name="keywords" content="Web3 Concepts, Web2 vs Web3, Ethereum vs Bitcoin, Proof of Work, Proof of Stake, Smart Contracts">
+  <meta name="author" content="Web3Edu">
+  <meta name="theme-color" content="#0B1020">
+  <title>Web3 Concepts - Web3Edu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+<base target="_blank">
+</head>
+<body>
+  <div class="loading-overlay">
+    <div class="loading-content">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" style="animation: spin 1s linear infinite;">
+        <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+      </svg>
+      <h2>Loading Concepts</h2>
+      <p>Preparing your learning materials...</p>
+    </div>
+  </div>
+
+  <div class="scroll-progress"></div>
+  <div class="mouse-glow"></div>
+  <div class="toast-container"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="36" height="16" rx="4" fill="url(#grad1)"/>
+          <rect x="2" y="22" width="36" height="16" rx="4" fill="url(#grad2)"/>
+          <defs>
+            <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="0">
+              <stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+            <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="0">
+              <stop offset="0%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Web3Edu
+      </a>
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="concepts.html" class="nav-link active">Concepts</a></li>
+        <li><a href="prices.html" class="nav-link">Live Prices</a></li>
+        <li><a href="simulator.html" class="nav-link">Block Simulator</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="github-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1" style="width: 400px; height: 400px; opacity: 0.3;"></div>
+      <div class="gradient-orb orb-2" style="width: 300px; height: 300px; opacity: 0.3;"></div>
+    </div>
+    <div class="container" style="position: relative; z-index: 10;">
+      <h1>Web3 <span class="text-gradient">Concepts</span></h1>
+      <p>Master the fundamentals by comparing key concepts side by side. Real examples, clear explanations, and practical insights.</p>
+    </div>
+  </section>
+
+  <!-- Comparison Cards -->
+  <section class="section-padding" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="comparison-grid">
+        <!-- Web2 vs Web3 -->
+        <div class="comparison-card fade-in">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <h3>Web2 vs Web3</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Web2 is the current internet model built around centralized platforms that own user data. Web3 is the next generation built on decentralized blockchain networks where users own their data and digital assets.</p>
+
+            <h4>Real-World Example</h4>
+            <p>When you post a photo on Instagram (Web2), Meta owns it and can delete your account at any time. When you mint an NFT (Web3), you own it forever and can sell it on any marketplace.</p>
+
+            <h4>Advantages of Web3</h4>
+            <ul>
+              <li>Users own their data and digital assets</li>
+              <li>Censorship-resistant platforms</li>
+              <li>Direct creator-to-consumer monetization</li>
+              <li>Interoperability across platforms</li>
+            </ul>
+
+            <h4>Disadvantages of Web3</h4>
+            <ul>
+              <li>Steeper learning curve for beginners</li>
+              <li>Gas fees for transactions</li>
+              <li>Less mature user experience</li>
+              <li>Regulatory uncertainty</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Web2</th><th>Web3</th></tr>
+              <tr><td>Data Ownership</td><td class="status-red">Platform owns data</td><td class="status-green">User owns data</td></tr>
+              <tr><td>Monetization</td><td class="status-red">Platform takes cut</td><td class="status-green">Direct to creator</td></tr>
+              <tr><td>Censorship</td><td class="status-red">Platform can ban</td><td class="status-green">Cannot be censored</td></tr>
+              <tr><td>Login</td><td class="status-yellow">Email/Password</td><td class="status-green">Wallet/Private Key</td></tr>
+              <tr><td>Payments</td><td class="status-yellow">Bank/Credit Card</td><td class="status-green">Cryptocurrency</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Ethereum vs Bitcoin -->
+        <div class="comparison-card fade-in stagger-1">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Ethereum vs Bitcoin</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Bitcoin is digital gold, a store of value and payment network. Ethereum is a global computer that runs smart contracts and decentralized applications (dApps).</p>
+
+            <h4>Real-World Example</h4>
+            <p>Bitcoin is like owning physical gold that you can send anywhere in the world. Ethereum is like owning a piece of the internet itself, where you can build apps, create tokens, and program financial logic.</p>
+
+            <h4>Advantages of Ethereum</h4>
+            <ul>
+              <li>Smart contract programmability</li>
+              <li>Supports NFTs, DeFi, and DAOs</li>
+              <li>Faster block times (12 seconds vs 10 minutes)</li>
+              <li>Massive developer ecosystem</li>
+            </ul>
+
+            <h4>Advantages of Bitcoin</h4>
+            <ul>
+              <li>Proven store of value over 14+ years</li>
+              <li>Most secure and decentralized network</li>
+              <li>Fixed supply of 21 million coins</li>
+              <li>Simple and robust codebase</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Bitcoin</th><th>Ethereum</th></tr>
+              <tr><td>Primary Use</td><td>Store of Value</td><td>Smart Contracts</td></tr>
+              <tr><td>Block Time</td><td>~10 minutes</td><td>~12 seconds</td></tr>
+              <tr><td>Consensus</td><td>Proof of Work</td><td>Proof of Stake</td></tr>
+              <tr><td>Supply Cap</td><td>21 million</td><td>No hard cap</td></tr>
+              <tr><td>Smart Contracts</td><td class="status-red">Limited</td><td class="status-green">Full Support</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Public Key vs Private Key -->
+        <div class="comparison-card fade-in">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+            </div>
+            <h3>Public Key vs Private Key</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>A public key is like your email address, you can share it freely so people can send you crypto. A private key is like your email password, it must never be shared because it gives complete control over your funds.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Imagine a mailbox. The public key is your mailbox address, anyone can drop mail in. The private key is the only key that opens the mailbox. If someone gets your private key, they can take everything inside.</p>
+
+            <h4>Public Key Advantages</h4>
+            <ul>
+              <li>Safe to share publicly</li>
+              <li>Used to receive funds and verify identity</li>
+              <li>Can be derived from private key</li>
+              <li>Enables transparent transactions</li>
+            </ul>
+
+            <h4>Private Key Risks</h4>
+            <ul>
+              <li>Anyone with your private key owns your assets</li>
+              <li>Lost keys mean lost funds forever</li>
+              <li>Must be stored offline or in hardware wallets</li>
+              <li>Phishing attacks target private keys</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Public Key</th><th>Private Key</th></tr>
+              <tr><td>Shareability</td><td class="status-green">Share freely</td><td class="status-red">Never share</td></tr>
+              <tr><td>Function</td><td>Receive funds</td><td>Sign transactions</td></tr>
+              <tr><td>Format</td><td>Long hex string</td><td>Long hex string</td></tr>
+              <tr><td>Security</td><td class="status-green">Safe to expose</td><td class="status-red">Must be secret</td></tr>
+              <tr><td>Recovery</td><td class="status-green">Can be regenerated</td><td class="status-red">Lost = lost funds</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Blockchain vs Traditional Database -->
+        <div class="comparison-card fade-in stagger-1">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Blockchain vs Database</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>A traditional database is a centralized system controlled by one entity, like a bank's ledger. A blockchain is a distributed database where identical copies exist on thousands of computers, and no single entity controls it.</p>
+
+            <h4>Real-World Example</h4>
+            <p>A bank's database is like a notebook kept in the bank vault. Only bank employees can write in it, and you must trust them. A blockchain is like a public bulletin board where every copy is identical, and everyone can verify what is written.</p>
+
+            <h4>Blockchain Advantages</h4>
+            <ul>
+              <li>No single point of failure</li>
+              <li>Immutable historical records</li>
+              <li>Trustless verification</li>
+              <li>Global accessibility</li>
+            </ul>
+
+            <h4>Database Advantages</h4>
+            <ul>
+              <li>Much faster transaction processing</li>
+              <li>Lower operational costs</li>
+              <li>Easy to modify and update data</li>
+              <li>Better for private/internal data</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Database</th><th>Blockchain</th></tr>
+              <tr><td>Control</td><td class="status-yellow">Centralized</td><td class="status-green">Decentralized</td></tr>
+              <tr><td>Speed</td><td class="status-green">Fast</td><td class="status-yellow">Slower</td></tr>
+              <tr><td>Immutability</td><td class="status-red">Can be altered</td><td class="status-green">Cannot be changed</td></tr>
+              <tr><td>Trust</td><td class="status-red">Trust institution</td><td class="status-green">Trust math/code</td></tr>
+              <tr><td>Cost</td><td class="status-green">Low</td><td class="status-yellow">Higher (gas fees)</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Smart Contracts -->
+        <div class="comparison-card fade-in">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Smart Contracts</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Smart contracts are self-executing programs stored on a blockchain that automatically enforce and execute agreements when predefined conditions are met. They are like vending machines, insert money, select item, and the machine delivers automatically.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Imagine buying a house. Traditionally, you need lawyers, escrow agents, and banks. With a smart contract, when the buyer sends the payment, ownership automatically transfers. No intermediaries, no delays, no disputes.</p>
+
+            <h4>Advantages</h4>
+            <ul>
+              <li>No intermediaries or middlemen</li>
+              <li>Execution is automatic and guaranteed</li>
+              <li>Transparent and auditable code</li>
+              <li>Reduces costs and processing time</li>
+            </ul>
+
+            <h4>Disadvantages</h4>
+            <ul>
+              <li>Code bugs can be catastrophic and irreversible</li>
+              <li>Cannot adapt to unforeseen circumstances</li>
+              <li>Legal recognition varies by jurisdiction</li>
+              <li>Requires technical expertise to write safely</li>
+            </ul>
+
+            <h4>Popular Use Cases</h4>
+            <ul>
+              <li>DeFi lending and borrowing protocols</li>
+              <li>Automated insurance payouts</li>
+              <li>Decentralized exchanges (DEXs)</li>
+              <li>Supply chain automation</li>
+              <li>Token sales and crowdfunding</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Proof of Work vs Proof of Stake -->
+        <div class="comparison-card fade-in stagger-1">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Proof of Work vs Proof of Stake</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Proof of Work (PoW) requires miners to solve complex math puzzles using massive computing power to validate transactions. Proof of Stake (PoS) requires validators to lock up (stake) cryptocurrency as collateral to validate transactions.</p>
+
+            <h4>Real-World Example</h4>
+            <p>PoW is like a lottery where you buy millions of tickets (computing power) to win. PoS is like a savings account where the more money you deposit, the more likely you are to be chosen to validate transactions and earn rewards.</p>
+
+            <h4>Proof of Work Advantages</h4>
+            <ul>
+              <li>Proven security over 14+ years (Bitcoin)</li>
+              <li>High barrier to attack (expensive hardware)</li>
+              <li>Decentralized mining distribution</li>
+            </ul>
+
+            <h4>Proof of Stake Advantages</h4>
+            <ul>
+              <li>99.95% less energy consumption</li>
+              <li>Faster transaction finality</li>
+              <li>Lower barrier to entry (no expensive hardware)</li>
+              <li>Built-in economic penalties for bad behavior</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Proof of Work</th><th>Proof of Stake</th></tr>
+              <tr><td>Energy Use</td><td class="status-red">Very High</td><td class="status-green">Very Low</td></tr>
+              <tr><td>Entry Cost</td><td class="status-red">Expensive hardware</td><td class="status-green">Minimum stake</td></tr>
+              <tr><td>Security</td><td class="status-green">Proven over years</td><td class="status-yellow">Newer model</td></tr>
+              <tr><td>Speed</td><td class="status-yellow">Slower</td><td class="status-green">Faster</td></tr>
+              <tr><td>Examples</td><td>Bitcoin, Ethereum (old)</td><td>Ethereum 2.0, Solana</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Layer 1 vs Layer 2 -->
+        <div class="comparison-card fade-in">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="5" width="22" height="14" rx="7"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Layer 1 vs Layer 2</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Layer 1 is the base blockchain (like Ethereum or Bitcoin) that provides the core security and consensus. Layer 2 is a scaling solution built on top of Layer 1 that processes transactions faster and cheaper while inheriting Layer 1 security.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Layer 1 is like a busy highway with toll booths. Layer 2 is like a service road that runs parallel, where you can travel faster and cheaper, but you still use the main highway for final settlement and security.</p>
+
+            <h4>Layer 1 Advantages</h4>
+            <ul>
+              <li>Highest security and decentralization</li>
+              <li>Native asset issuance</li>
+              <li>Foundation for entire ecosystem</li>
+            </ul>
+
+            <h4>Layer 2 Advantages</h4>
+            <ul>
+              <li>Transaction fees reduced by 90%+</li>
+              <li>Throughput increased by 100x+</li>
+              <li>Same security as Layer 1</li>
+              <li>Better user experience</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Layer 1</th><th>Layer 2</th></tr>
+              <tr><td>Speed</td><td class="status-yellow">~15 TPS</td><td class="status-green">~2,000+ TPS</td></tr>
+              <tr><td>Cost</td><td class="status-red">$1-50</td><td class="status-green">$0.01-0.10</td></tr>
+              <tr><td>Security</td><td class="status-green">Maximum</td><td class="status-green">Inherits L1</td></tr>
+              <tr><td>Examples</td><td>Ethereum, Solana</td><td>Arbitrum, Polygon</td></tr>
+              <tr><td>Complexity</td><td class="status-green">Simple</td><td class="status-yellow">More complex</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Gas Fees -->
+        <div class="comparison-card fade-in stagger-1">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Gas Fees</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Gas fees are payments users make to compensate for the computational energy required to process and validate transactions on a blockchain. They prevent spam and ensure the network remains secure and functional.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Think of gas fees like postage stamps. When you send a letter, you pay for the postal service to process and deliver it. Similarly, gas fees pay miners or validators to process your transaction and add it to the blockchain.</p>
+
+            <h4>Factors Affecting Gas Fees</h4>
+            <ul>
+              <li><strong>Network congestion:</strong> More users = higher fees</li>
+              <li><strong>Transaction complexity:</strong> Simple transfers cost less than smart contracts</li>
+              <li><strong>Gas price:</strong> Users can bid higher for faster processing</li>
+              <li><strong>Blockchain type:</strong> Layer 1 is more expensive than Layer 2</li>
+            </ul>
+
+            <h4>How to Reduce Gas Fees</h4>
+            <ul>
+              <li>Use Layer 2 networks like Arbitrum or Polygon</li>
+              <li>Transact during off-peak hours (weekends, nights)</li>
+              <li>Use gas price estimation tools</li>
+              <li>Batch multiple transactions when possible</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Network</th><th>Avg Fee</th><th>Speed</th></tr>
+              <tr><td>Ethereum L1</td><td class="status-red">$5-50</td><td class="status-yellow">~15 TPS</td></tr>
+              <tr><td>Arbitrum</td><td class="status-green">$0.10-0.50</td><td class="status-green">~2,000 TPS</td></tr>
+              <tr><td>Polygon</td><td class="status-green">$0.01-0.10</td><td class="status-green">~7,000 TPS</td></tr>
+              <tr><td>Solana</td><td class="status-green">$0.00025</td><td class="status-green">~65,000 TPS</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Wallets -->
+        <div class="comparison-card fade-in">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M20 12v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4"/><path d="M18 12h2a2 2 0 012 2v0a2 2 0 01-2 2h-2"/></svg>
+            </div>
+            <h3>Wallets</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>A crypto wallet is software that stores your private keys and allows you to interact with the blockchain. Contrary to the name, wallets do not actually store your coins, they store the keys that prove ownership of coins on the blockchain.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Your wallet is like a keyring. The keys themselves are not valuable, but they unlock access to your house (funds). If you lose your keys, you cannot access your house. If someone copies your keys, they can enter without your permission.</p>
+
+            <h4>Hot Wallets (Software)</h4>
+            <ul>
+              <li><strong>Pros:</strong> Free, easy to use, always connected</li>
+              <li><strong>Cons:</strong> Vulnerable to hacks, phishing, malware</li>
+              <li><strong>Best for:</strong> Small amounts, frequent transactions</li>
+              <li><strong>Examples:</strong> MetaMask, Trust Wallet, Coinbase Wallet</li>
+            </ul>
+
+            <h4>Cold Wallets (Hardware)</h4>
+            <ul>
+              <li><strong>Pros:</strong> Maximum security, offline storage, immune to hacks</li>
+              <li><strong>Cons:</strong> Cost $50-200, less convenient for frequent use</li>
+              <li><strong>Best for:</strong> Large holdings, long-term storage</li>
+              <li><strong>Examples:</strong> Ledger, Trezor, Keystone</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Aspect</th><th>Hot Wallet</th><th>Cold Wallet</th></tr>
+              <tr><td>Cost</td><td class="status-green">Free</td><td class="status-yellow">$50-200</td></tr>
+              <tr><td>Security</td><td class="status-yellow">Good</td><td class="status-green">Excellent</td></tr>
+              <tr><td>Convenience</td><td class="status-green">High</td><td class="status-yellow">Lower</td></tr>
+              <tr><td>Internet</td><td class="status-red">Required</td><td class="status-green">Not needed</td></tr>
+              <tr><td>Best For</td><td>Daily use</td><td>Savings</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Consensus -->
+        <div class="comparison-card fade-in stagger-1">
+          <div class="comparison-header">
+            <div class="icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <h3>Consensus Mechanisms</h3>
+          </div>
+          <div class="comparison-body">
+            <h4>Definition</h4>
+            <p>Consensus is how blockchain networks agree on what transactions are valid without a central authority. It is the mechanism that ensures all participants have the same copy of the ledger and prevents double-spending.</p>
+
+            <h4>Real-World Example</h4>
+            <p>Imagine a group of friends deciding where to eat. In a centralized system, one person decides. In a consensus system, everyone votes, and the majority wins. The blockchain does this automatically with math instead of human votes.</p>
+
+            <h4>Types of Consensus</h4>
+            <ul>
+              <li><strong>Proof of Work (PoW):</strong> Solve puzzles with computing power. Used by Bitcoin.</li>
+              <li><strong>Proof of Stake (PoS):</strong> Lock up tokens as collateral. Used by Ethereum 2.0.</li>
+              <li><strong>Delegated PoS:</strong> Token holders vote for delegates. Used by Cardano.</li>
+              <li><strong>Proof of Authority:</strong> Trusted validators only. Used by private chains.</li>
+            </ul>
+
+            <h4>Why Consensus Matters</h4>
+            <ul>
+              <li>Prevents double-spending without a bank</li>
+              <li>Ensures all nodes agree on transaction history</li>
+              <li>Provides economic incentives for honest behavior</li>
+              <li>Makes the network resilient to attacks</li>
+            </ul>
+
+            <h4>Comparison Table</h4>
+            <table class="comparison-table">
+              <tr><th>Mechanism</th><th>Energy</th><th>Speed</th><th>Decentralization</th></tr>
+              <tr><td>Proof of Work</td><td class="status-red">High</td><td class="status-yellow">Slow</td><td class="status-green">High</td></tr>
+              <tr><td>Proof of Stake</td><td class="status-green">Low</td><td class="status-green">Fast</td><td class="status-yellow">Medium</td></tr>
+              <tr><td>Delegated PoS</td><td class="status-green">Low</td><td class="status-green">Fast</td><td class="status-yellow">Medium</td></tr>
+              <tr><td>Proof of Authority</td><td class="status-green">Low</td><td class="status-green">Fast</td><td class="status-red">Low</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="glass-card fade-in" style="text-align: center; padding: 60px 40px;">
+        <h2 style="margin-bottom: 16px;">Ready to See It in <span class="text-gradient">Action</span>?</h2>
+        <p style="max-width: 500px; margin: 0 auto 32px;">Build your own blockchain, mine blocks, and see how tampering breaks the chain in our interactive simulator.</p>
+        <a href="simulator.html" class="btn btn-primary btn-ripple">
+          Launch Block Simulator
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-brand">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="36" height="16" rx="4" fill="url(#grad1)"/>
+              <rect x="2" y="22" width="36" height="16" rx="4" fill="url(#grad2)"/>
+              <defs>
+                <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="0"><stop offset="0%" stop-color="#8B5CF6"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+                <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="0"><stop offset="0%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient>
+              </defs>
+            </svg>
+            Web3Edu
+          </a>
+          <p>Empowering the next generation of blockchain builders, innovators, and enthusiasts through world-class education.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a>
+            <a href="#" aria-label="Discord"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="prices.html">Live Prices</a></li>
+            <li><a href="simulator.html">Block Simulator</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#blockchain">Blockchain Basics</a></li>
+            <li><a href="index.html#applications">Applications</a></li>
+            <li><a href="concepts.html">Comparisons</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@web3edu.io">hello@web3edu.io</a></li>
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Community Forum</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Web3Edu. All rights reserved. Built for educational purposes.</p>
+        <a href="#" class="back-to-top">Back to Top<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web3Edu - Learn Blockchain, Web3, Cryptocurrency, and Smart Contracts with interactive educational content.">
+  <meta name="keywords" content="Web3, Blockchain, Cryptocurrency, Ethereum, Bitcoin, Smart Contracts, DeFi, NFT, Education">
+  <meta name="author" content="Web3Edu">
+  <meta name="theme-color" content="#0B1020">
+  <title>Web3Edu - Learn Blockchain & Web3</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+<base target="_blank">
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div class="loading-overlay">
+    <div class="loading-content">
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" style="animation: spin 1s linear infinite;">
+        <rect x="2" y="2" width="20" height="8" rx="2"/>
+        <rect x="2" y="14" width="20" height="8" rx="2"/>
+      </svg>
+      <h2>Loading Web3Edu</h2>
+      <p>Preparing your blockchain journey...</p>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress"></div>
+
+  <!-- Mouse Glow Effect -->
+  <div class="mouse-glow"></div>
+
+  <!-- Toast Container -->
+  <div class="toast-container"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="36" height="16" rx="4" fill="url(#grad1)"/>
+          <rect x="2" y="22" width="36" height="16" rx="4" fill="url(#grad2)"/>
+          <defs>
+            <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="0">
+              <stop offset="0%" stop-color="#8B5CF6"/>
+              <stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+            <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="0">
+              <stop offset="0%" stop-color="#06B6D4"/>
+              <stop offset="100%" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        Web3Edu
+      </a>
+
+      <ul class="navbar-nav">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="concepts.html" class="nav-link">Concepts</a></li>
+        <li><a href="prices.html" class="nav-link">Live Prices</a></li>
+        <li><a href="simulator.html" class="nav-link">Block Simulator</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="github-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <button class="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+    </div>
+    <div class="hero-grid"></div>
+    <div class="hero-particles"></div>
+    <canvas id="particles-canvas" style="position: absolute; inset: 0; z-index: 2; pointer-events: none;"></canvas>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Master the Future of the <span class="text-gradient">Internet</span></h1>
+          <p class="typing-text" data-text="Learn Blockchain, Web3, Smart Contracts, and DeFi through interactive, beginner-friendly education." data-speed="30"></p>
+          <div class="hero-buttons">
+            <a href="concepts.html" class="btn btn-primary btn-ripple">
+              Explore Web3
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="prices.html" class="btn btn-secondary btn-ripple">
+              Live Crypto Prices
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <svg class="hero-illustration" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Blockchain Illustration -->
+            <defs>
+              <linearGradient id="blockGrad1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+              <linearGradient id="blockGrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
+              </linearGradient>
+              <linearGradient id="blockGrad3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="15" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+
+            <!-- Connection Lines -->
+            <line x1="130" y1="180" x2="230" y2="100" stroke="rgba(139,92,246,0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+            <line x1="270" y1="100" x2="370" y2="180" stroke="rgba(59,130,246,0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+            <line x1="130" y1="220" x2="230" y2="300" stroke="rgba(6,182,212,0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+            <line x1="270" y1="300" x2="370" y2="220" stroke="rgba(16,185,129,0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+
+            <!-- Block 1 -->
+            <rect x="50" y="140" width="80" height="80" rx="12" fill="url(#blockGrad1)" opacity="0.9"/>
+            <rect x="60" y="150" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="60" y="165" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="60" y="178" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="60" y="191" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Block 2 -->
+            <rect x="210" y="60" width="80" height="80" rx="12" fill="url(#blockGrad2)" opacity="0.9"/>
+            <rect x="220" y="70" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="220" y="85" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="220" y="98" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="220" y="111" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Block 3 -->
+            <rect x="370" y="140" width="80" height="80" rx="12" fill="url(#blockGrad3)" opacity="0.9"/>
+            <rect x="380" y="150" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="380" y="165" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="380" y="178" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="380" y="191" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Block 4 -->
+            <rect x="50" y="260" width="80" height="80" rx="12" fill="url(#blockGrad2)" opacity="0.9"/>
+            <rect x="60" y="270" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="60" y="285" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="60" y="298" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="60" y="311" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Block 5 -->
+            <rect x="210" y="260" width="80" height="80" rx="12" fill="url(#blockGrad1)" opacity="0.9"/>
+            <rect x="220" y="270" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="220" y="285" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="220" y="298" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="220" y="311" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Block 6 -->
+            <rect x="370" y="260" width="80" height="80" rx="12" fill="url(#blockGrad2)" opacity="0.9"/>
+            <rect x="380" y="270" width="60" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+            <rect x="380" y="285" width="40" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="380" y="298" width="50" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="380" y="311" width="35" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Central Hub -->
+            <circle cx="250" cy="200" r="50" fill="url(#blockGrad1)" opacity="0.2" filter="url(#glow)"/>
+            <circle cx="250" cy="200" r="30" fill="url(#blockGrad1)" opacity="0.8"/>
+            <path d="M235 200h30M250 185v30" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+
+          <div class="floating-coin">&#x20BF;</div>
+          <div class="floating-coin">&#x039E;</div>
+          <div class="floating-coin">&#x25CE;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="#111827"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item fade-in">
+          <div class="stat-number" data-counter="50000" data-suffix="+">0</div>
+          <div class="stat-label">Students Learning</div>
+        </div>
+        <div class="stat-item fade-in stagger-1">
+          <div class="stat-number" data-counter="120" data-suffix="+">0</div>
+          <div class="stat-label">Educational Modules</div>
+        </div>
+        <div class="stat-item fade-in stagger-2">
+          <div class="stat-number" data-counter="98" data-suffix="%">0</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+        <div class="stat-item fade-in stagger-3">
+          <div class="stat-number" data-counter="24" data-suffix="/7">0</div>
+          <div class="stat-label">Learning Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Blockchain Section -->
+  <section class="section-padding" id="blockchain">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>What is <span class="text-gradient">Blockchain</span>?</h2>
+        <p>Think of a blockchain as a digital ledger that is shared among thousands of computers around the world. Unlike a traditional ledger kept in one bank, this one is public, transparent, and impossible to tamper with.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6" y2="6"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="6" y1="18" x2="6" y2="18"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
+          </div>
+          <h3>Decentralized Ledger</h3>
+          <p>No single company or government controls the blockchain. It is maintained by a network of computers (called nodes) that all work together. This means there is no central point of failure and no one can shut it down or manipulate it alone.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Immutable Records</h3>
+          <p>Once data is written to a blockchain, it cannot be changed or deleted. Every transaction is permanently recorded and linked to the one before it. This creates an unbreakable chain of trust that anyone can verify.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Trust Without Intermediaries</h3>
+          <p>Blockchain allows strangers to transact and agree on facts without needing a bank, lawyer, or middleman. The math and code replace the need for trust in people or institutions. This is what makes Web3 revolutionary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Blockchain Works Section -->
+  <section class="section-padding" style="background: var(--bg-secondary);" id="how-it-works">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>How <span class="text-gradient">Blockchain Works</span></h2>
+        <p>Understanding the mechanics behind blockchain technology helps you appreciate why it is so secure and reliable.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>1. Transaction Request</h3>
+            <p>A user initiates a transaction, such as sending cryptocurrency to a friend or executing a smart contract. This request is broadcast to the entire network of computers.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>2. Block Creation</h3>
+            <p>The transaction is grouped with other pending transactions into a "block." Each block contains a list of transactions, a timestamp, and a reference to the previous block.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>3. Validation (Consensus)</h3>
+            <p>Network nodes verify the block using consensus mechanisms like Proof of Work or Proof of Stake. This ensures all transactions are legitimate before the block is accepted.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>4. Hashing & Linking</h3>
+            <p>Once validated, the block receives a unique cryptographic hash. This hash is stored in the next block, creating an unbreakable chain. Changing any data breaks the chain.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>5. Permanent Record</h3>
+            <p>The block is added to the blockchain and distributed across all nodes. The transaction is now complete, transparent, and permanently recorded for anyone to verify.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Web3 Matters -->
+  <section class="section-padding" id="why-web3">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Why <span class="text-gradient">Web3</span> is Important</h2>
+        <p>Web3 represents a fundamental shift in how we interact with the internet, giving power back to users.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background: var(--gradient-cyan);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Ownership of Data</h3>
+          <p>In Web2, companies like Facebook and Google own your data. In Web3, you own your data. Your identity, content, and digital assets belong to you alone. You decide what to share and who to share it with.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background: var(--gradient-cyan);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <h3>Transparency</h3>
+          <p>Every transaction on a public blockchain is visible to anyone. This transparency eliminates corruption, fraud, and hidden manipulation. Organizations can prove they are acting honestly.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon" style="background: var(--gradient-cyan);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Censorship Resistance</h3>
+          <p>No government or corporation can block your transactions or freeze your assets on a decentralized blockchain. This is crucial for people living under authoritarian regimes or in unstable economies.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background: var(--gradient-purple);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Interoperability</h3>
+          <p>Web3 assets and identities work across different platforms and applications. Your NFT from one game can be used in another. Your reputation follows you across the decentralized web.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background: var(--gradient-purple);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>Financial Inclusion</h3>
+          <p>Over 1.7 billion people lack access to banking. Web3 allows anyone with a smartphone to access financial services, send money globally, and participate in the digital economy without a bank account.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon" style="background: var(--gradient-purple);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Smart Contracts</h3>
+          <p>Self-executing agreements written in code. No lawyers, no paperwork, no delays. When conditions are met, the contract executes automatically. This is the foundation of DeFi, NFTs, and DAOs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications Section -->
+  <section class="section-padding" style="background: var(--bg-secondary);" id="applications">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Real-World <span class="text-gradient">Applications</span></h2>
+        <p>Blockchain is not just about cryptocurrency. It is transforming industries across the globe.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          </div>
+          <h3>Supply Chain</h3>
+          <p>Track products from factory to shelf with complete transparency. Consumers can verify authenticity, origin, and ethical sourcing. Companies like Walmart and Maersk already use blockchain for supply chain tracking.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Finance (DeFi)</h3>
+          <p>Decentralized Finance removes banks from lending, borrowing, and trading. Users can earn interest, get loans, and trade assets directly with each other using smart contracts on platforms like Aave and Uniswap.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Voting</h3>
+          <p>Blockchain voting ensures every vote is counted accurately and cannot be tampered with. Voters can verify their vote was recorded correctly without revealing their identity. This could revolutionize democracy.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Healthcare</h3>
+          <p>Patients can own and control their medical records. Doctors can access complete health histories instantly. Medical research can use anonymized data with patient consent. This saves lives and reduces costs.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="7" width="10" height="10" rx="1"/></svg>
+          </div>
+          <h3>NFTs</h3>
+          <p>Non-Fungible Tokens prove ownership of digital art, music, collectibles, and even real estate. Artists can earn royalties automatically every time their work is resold. This creates new revenue models for creators.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-2">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0012 0V2z"/></svg>
+          </div>
+          <h3>Gaming</h3>
+          <p>Players truly own in-game items, characters, and currencies. These assets can be traded on marketplaces or used across different games. Play-to-earn models reward players for their time and skill.</p>
+        </div>
+
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #06B6D4 0%, #10B981 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Digital Identity</h3>
+          <p>Self-sovereign identity gives you control over your digital credentials. You can prove your age, qualifications, or membership without revealing unnecessary personal information. Privacy by design.</p>
+        </div>
+
+        <div class="feature-card fade-in stagger-1">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Smart Contracts</h3>
+          <p>Automated agreements that execute when conditions are met. Insurance payouts happen instantly when a flight is delayed. Rent is released automatically when a tenant moves in. No disputes, no delays.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>What Our <span class="text-gradient">Students</span> Say</h2>
+        <p>Join thousands of learners who have transformed their understanding of Web3.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+          </div>
+          <p class="testimonial-text">"I went from knowing nothing about blockchain to understanding how smart contracts work in just two weeks. The interactive simulator made hashing and mining crystal clear."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SK</div>
+            <div>
+              <h4>Sarah Kim</h4>
+              <span>Software Engineer at Google</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in stagger-1">
+          <div class="testimonial-stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+          </div>
+          <p class="testimonial-text">"As a traditional finance professional, I was skeptical about DeFi. Web3Edu broke down complex concepts into simple, real-world analogies. Now I am actively investing in the space."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <h4>Michael Rodriguez</h4>
+              <span>Investment Analyst</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-in stagger-2">
+          <div class="testimonial-stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+          </div>
+          <p class="testimonial-text">"The comparison between Web2 and Web3 completely changed how I think about the internet. I now build dApps for a living and could not have done it without this platform."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AC</div>
+            <div>
+              <h4>Aisha Chen</h4>
+              <span>Web3 Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-padding" style="background: var(--bg-secondary);" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Frequently Asked <span class="text-gradient">Questions</span></h2>
+        <p>Everything you need to know to get started with Web3.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            What is the difference between Web2 and Web3?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Web2 is the internet we use today, dominated by centralized platforms like Facebook, Google, and Amazon that control your data and monetize your attention. Web3 is the next evolution, built on decentralized networks where users own their data, content, and digital assets. In Web3, you are not the product; you are the owner.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            Do I need to know programming to learn Web3?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely not. While programming helps if you want to build dApps or smart contracts, understanding blockchain concepts, using wallets, and participating in DeFi requires no coding knowledge. Start with the concepts and go as deep as you want.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            Is blockchain secure?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Blockchains are among the most secure systems ever invented. The combination of cryptography, decentralization, and consensus makes them virtually impossible to hack. However, individual wallets and exchanges can be compromised if users are careless with private keys. Security is a shared responsibility.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            What is a gas fee?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Gas fees are payments made to compensate for the computing energy required to process and validate transactions on the blockchain. Think of it like postage for sending a letter. Fees vary based on network congestion. Layer 2 solutions like Arbitrum and Polygon significantly reduce these costs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            Can I lose my cryptocurrency?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, if you lose your private keys or seed phrase, your cryptocurrency is permanently inaccessible. There is no "forgot password" button in Web3. This is why it is critical to back up your keys securely, preferably offline in multiple locations. Never share your private keys with anyone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item fade-in">
+          <button class="faq-question">
+            What is a wallet and how do I get one?
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>A crypto wallet is software that stores your private keys and allows you to interact with the blockchain. Popular options include MetaMask (browser extension), Coinbase Wallet, and Trust Wallet. Most are free to download and set up in minutes. Always download wallets from official sources to avoid scams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="glass-card fade-in" style="text-align: center; padding: 60px 40px;">
+        <h2 style="margin-bottom: 16px;">Ready to Start Your <span class="text-gradient">Web3 Journey</span>?</h2>
+        <p style="max-width: 500px; margin: 0 auto 32px;">Explore interactive concepts, track live crypto prices, and build your own blockchain in our simulator. No prior experience required.</p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="simulator.html" class="btn btn-primary btn-ripple">
+            Try Block Simulator
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+          </a>
+          <a href="concepts.html" class="btn btn-secondary btn-ripple">
+            Explore Concepts
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box fade-in">
+        <h2>Stay Ahead of the <span class="text-gradient">Curve</span></h2>
+        <p>Get weekly Web3 insights, market analysis, and educational content delivered straight to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn-primary btn-ripple">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="navbar-brand">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="36" height="16" rx="4" fill="url(#grad1)"/>
+              <rect x="2" y="22" width="36" height="16" rx="4" fill="url(#grad2)"/>
+              <defs>
+                <linearGradient id="grad1" x1="0" y1="0" x2="40" y2="0">
+                  <stop offset="0%" stop-color="#8B5CF6"/>
+                  <stop offset="100%" stop-color="#3B82F6"/>
+                </linearGradient>
+                <linearGradient id="grad2" x1="0" y1="0" x2="40" y2="0">
+                  <stop offset="0%" stop-color="#06B6D4"/>
+                  <stop offset="100%" stop-color="#3B82F6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            Web3Edu
+          </a>
+          <p>Empowering the next generation of blockchain builders, innovators, and enthusiasts through world-class education.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Twitter" class="tooltip" data-tooltip="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" aria-label="Discord" class="tooltip" data-tooltip="Discord">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="tooltip" data-tooltip="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="tooltip" data-tooltip="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="concepts.html">Concepts</a></li>
+            <li><a href="prices.html">Live Prices</a></li>
+            <li><a href="simulator.html">Block Simulator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#blockchain">Blockchain Basics</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="concepts.html">Comparisons</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@web3edu.io">hello@web3edu.io</a></li>
+            <li><a href="#">Support Center</a></li>
+            <li><a href="#">Community Forum</a></li>
+            <li><a href="#">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Web3Edu. All rights reserved. Built for educational purposes.</p>
+        <a href="#" class="back-to-top">
+          Back to Top
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
